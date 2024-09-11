@@ -22,7 +22,7 @@ for i in range(num_runs):
 
     run_config = {
         'url': 'https://github.com/jmorgancusick/airflow-summit-demo.git',
-        'branch': '0.0.2',
+        'branch': '1.2.1',
         'version': '1.9.5',
         'deployment': str(i),
     }
