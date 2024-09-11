@@ -77,6 +77,8 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
     - ${AIRFLOW_PROJ_DIR:-.}/workspace:/opt/airflow/workspace
     - ~/.aws:/home/airflow/.aws
+    # Terraform plugin caching
+    - ~/.terraform.d/plugin-cache:/home/airflow/.terraform.d/plugin-cache
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on

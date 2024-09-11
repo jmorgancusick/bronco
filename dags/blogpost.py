@@ -17,6 +17,9 @@ import time
 class BadLuckException(Exception):
     pass
 
+class ReallyBadLuckException(BadLuckException):
+    pass
+
 @task(task_id='clone')
 def clone():
     time.sleep(random.randint(5, 15))
@@ -38,9 +41,12 @@ def generate_tags():
 @task(task_id='init_0.14')
 def init_0_14():
     roll = random.randint(1,20)
-    if roll <= 3:
+    if roll == 1:
+        print('Yikes!')
+        raise ReallyBadLuckException(f'You rolled a {roll} out of 20')
+    if roll <= 5:
         print('Better luck next time!')
-        raise BadLuckException(f'You rolled a {roll}')
+        raise BadLuckException(f'You rolled a {roll} out of 20')
 
     time.sleep(random.randint(5, 15))
 
